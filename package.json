@@ -1,0 +1,70 @@
+{
+  "name": "postcss-preserve-px-fontsize",
+  "version": "0.1.0",
+  "description": "preserve px font-size from postcss-px-to-viewport",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "lint": "eslint src test",
+    "format": "prettier --config .prettierrc.js --write src/**/*.js test/**/*.js",
+    "inspect": "jsinspect src",
+    "test": "nyc ava -v",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ta7sudan/postcss-preserve-px-fontsize.git"
+  },
+  "keywords": [
+    "postcss",
+    "fontsize",
+    "px",
+    "vw",
+    "preserve"
+  ],
+  "author": "ta7sudan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ta7sudan/postcss-preserve-px-fontsize/issues"
+  },
+  "files": [
+    "src",
+    "dist",
+    "example",
+    "types"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "ava": {
+    "cache": true,
+    "babel": false
+  },
+  "nyc": {
+    "cache": true,
+    "include": [
+      "src/**/*.js"
+    ]
+  },
+  "homepage": "https://github.com/ta7sudan/postcss-preserve-px-fontsize#readme",
+  "devDependencies": {
+    "ava": "1.0.0-rc.1",
+    "codecov": "^3.1.0",
+    "eslint": "^5.7.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.1.2",
+    "jsinspect": "^0.12.7",
+    "lint-staged": "^7.3.0",
+    "nyc": "^13.1.0",
+    "postcss": "^7.0.5",
+    "prettier": "^1.14.3"
+  }
+}

@@ -1,0 +1,8 @@
+div {
+	font-size: 50vw;
+	/* 375px */
+	font: bold 4.267vw/50vw "Microsoft Yahei"; 
+	/* 32px */
+	color: red;
+	line-height: 4.267vw;
+}
