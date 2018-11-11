@@ -1,3 +1,4 @@
+'use strict';
 const postcss = require('postcss');
 
 function getOriginPx(fontSize, viewportWidth) {
