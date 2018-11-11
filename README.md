@@ -1,5 +1,5 @@
 # postcss-preserve-px-fontsize
-preserve px font-size from postcss-px-to-viewport
+preserve px font-size from postcss-px-to-viewport, only for vw unit.
 
 
 
@@ -44,6 +44,45 @@ output
 ```css
 div {
 	font-size: 375px;
+	/* 375px */
+	font: bold 32px/375px "Microsoft Yahei"; 
+	/* 32px */
+	color: red;
+	line-height: 32px;
+}
+```
+
+
+
+## Options
+
+* `viewportWidth` same as [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport#options)
+* `lineHeight` boolean, should preserve px unit for `line-height`
+
+
+
+## Skip a declaration
+
+Maybe you want to use vw for a specified declaration, you can add a comment `/* skipvw */` after the declaration.
+
+```css
+div {
+	font-size: 50vw; /* skipvw */
+	/* 375px */
+	font: bold 4.267vw/50vw "Microsoft Yahei"; 
+	/* 32px */
+	color: red;
+	line-height: 4.267vw;
+}
+```
+
+This will preserve vw for `font-size`.
+
+output
+
+```css
+div {
+	font-size: 50vw; /* skipvw */
 	/* 375px */
 	font: bold 32px/375px "Microsoft Yahei"; 
 	/* 32px */

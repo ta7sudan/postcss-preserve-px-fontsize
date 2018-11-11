@@ -8,10 +8,18 @@ function getOriginPx(fontSize, viewportWidth) {
 	return `${originPx}px`;
 }
 
+function shouldSkip(decl) {
+	const nextSibling = decl.next();
+	return nextSibling && nextSibling.type === 'comment' && nextSibling.text === 'skipvw';
+}
+
 module.exports = postcss.plugin('postcss-preserve-fontsize', function ({ viewportWidth = 750, lineHeight = false } = {}) {
 	return function (root) {
 		root.walkRules(rule => {
 			rule.walkDecls('font', decl => {
+				if (shouldSkip(decl)) {
+					return;
+				}
 				const parts = decl.value.split('/');
 				const sizeParts = parts[0], lineHeightParts = parts[1];
 				const fontSize = sizeParts.split(/\s+/).filter(/v/.test.bind(/vw$/))[0];
@@ -28,6 +36,9 @@ module.exports = postcss.plugin('postcss-preserve-fontsize', function ({ viewpor
 				}
 			});
 			const declHandler = decl => {
+				if (shouldSkip(decl)) {
+					return;
+				}
 				const val = decl.value;
 				if (/vw$/.test(val)) {
 					decl.value = getOriginPx(val, viewportWidth);

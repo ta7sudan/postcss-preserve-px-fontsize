@@ -1,5 +1,5 @@
 div {
-	font-size: 50vw;
+	font-size: 50vw; /* skipvw */
 	/* 375px */
 	font: bold 4.267vw/50vw "Microsoft Yahei"; 
 	/* 32px */
