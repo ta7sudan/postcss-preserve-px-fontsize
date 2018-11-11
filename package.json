@@ -1,6 +1,6 @@
 {
   "name": "postcss-preserve-px-fontsize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "preserve px font-size from postcss-px-to-viewport",
   "main": "src/index.js",
   "types": "types/index.d.ts",
