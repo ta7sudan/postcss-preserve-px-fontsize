@@ -3,6 +3,12 @@ preserve px font-size from postcss-px-to-viewport, only for vw unit.
 
 
 
+## Deprecated
+
+See [postcss-convertpx](https://github.com/ta7sudan/postcss-convertpx).
+
+
+
 ## Requirement
 
 Must set this plugin after [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport).
